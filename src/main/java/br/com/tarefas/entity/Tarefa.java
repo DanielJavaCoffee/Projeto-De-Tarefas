@@ -1,5 +1,7 @@
 package br.com.tarefas.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,16 +19,18 @@ public class Tarefa {
 	private String descricao;
 	private boolean realizada;
 	private int prioridade;
+	private LocalDate data;
 	
 	public Tarefa() {
 	}
 
-	public Tarefa(String nome, String descricao, boolean realizada, int prioridade) {
+	public Tarefa(String nome, String descricao, boolean realizada, int prioridade, LocalDate localDate) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.realizada = realizada;
 		this.prioridade = prioridade;
+		this.data = localDate;
 	}
 
 	public Long getId() {
@@ -67,5 +71,13 @@ public class Tarefa {
 
 	public void setPrioridade(int prioridade) {
 		this.prioridade = prioridade;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 }
